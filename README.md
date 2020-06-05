@@ -19,9 +19,11 @@ Exercise 3
   If needs help to start add from snippets
 
     Postman: https://learning.postman.com/docs/postman/scripts/intro-to-scripts/
+    
     Status codes: https://httpstatusdogs.com/   - https://http.cat/ 
 
 Excercise 4
+
  Run all the tests from runner    
 
 Excercise 5
