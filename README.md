@@ -36,7 +36,6 @@ Exercise 4:
 
 - Update a booking using the token to authenticates
 - Update a booking using the basic auth
-- Find update bug
+- Find update bugs
 - Update a booking sending just a part of the payload 
 
-​
