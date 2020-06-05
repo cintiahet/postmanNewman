@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Ej1-examples",
+			"name": "Ex1-examples",
 			"item": [
 				{
 					"name": "GET All bookings",
@@ -16,9 +16,7 @@
 							"script": {
 								"id": "1f1cad42-520d-42a8-ba6b-38b54cde6e10",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"",
-									"tests[\"Body matches string\"] = responseBody.has(\"ccc\");"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -251,10 +249,10 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "EJ2-examples",
+			"name": "Ex2-examples",
 			"item": [
 				{
-					"name": "Post",
+					"name": "create correct booking",
 					"event": [
 						{
 							"listen": "test",
@@ -478,7 +476,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstname\" : \"someName\",\r\n    \"lastname\" : \"someLastName\",\r\n    \"totalprice\" : \"sadfasdf\",\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"asdfasdf\",\r\n        \"checkout\" : \"2019-01-03\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}"
+							"raw": "{\r\n    \"firstname\" : \"someName\",\r\n    \"lastname\" : \"someLastName\",\r\n    \"totalprice\" : 1000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"asdfasdf\",\r\n        \"checkout\" : \"2019-01-03\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}"
 						},
 						"url": {
 							"raw": "{{bookingBaseUrl}}/booking",
@@ -516,7 +514,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstname\" : \"someName\",\r\n    \"lastname\" : \"someLastName\",\r\n    \"totalprice\" : \"sadfasdf\",\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2019-30-30\",\r\n        \"checkout\" : \"2019-01-03\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}"
+							"raw": "{\r\n    \"firstname\" : \"someName\",\r\n    \"lastname\" : \"someLastName\",\r\n    \"totalprice\" : 1000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2019-30-30\",\r\n        \"checkout\" : \"2019-01-03\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}"
 						},
 						"url": {
 							"raw": "{{bookingBaseUrl}}/booking",
@@ -554,7 +552,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstname\" : \"someName\",\r\n    \"lastname\" : \"someLastName\",\r\n    \"totalprice\" : \"sadfasdf\",\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2019\",\r\n        \"checkout\" : \"2019-01-03\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}"
+							"raw": "{\r\n    \"firstname\" : \"someName\",\r\n    \"lastname\" : \"someLastName\",\r\n    \"totalprice\" : 1000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2019\",\r\n        \"checkout\" : \"2019-01-03\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}"
 						},
 						"url": {
 							"raw": "{{bookingBaseUrl}}/booking",
@@ -567,12 +565,75 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Create booking as xml",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "14481c0b-82fb-4d01-bf2c-f16a5aa694ae",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<booking>\n    <firstname>Jim</firstname>\n    <lastname>Brown</lastname>\n    <totalprice>111</totalprice>\n    <depositpaid>true</depositpaid>\n    <bookingdates>\n      <checkin>2018-01-01</checkin>\n      <checkout>2019-01-01</checkout>\n    </bookingdates>\n    <additionalneeds>Breakfast</additionalneeds>\n  </booking>"
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f206abc4-e802-4225-8d7e-03b766091982",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "61dd106b-e059-4f27-a5cc-c69a2c4702c0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Ej3",
+			"name": "Ex3 examples",
 			"item": [
 				{
 					"name": "Not auth set in update",
@@ -813,7 +874,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "EJ4 - examples",
+			"name": "Ex4 - examples",
 			"item": [
 				{
 					"name": "Update basic auth",
@@ -1018,6 +1079,78 @@
 							],
 							"path": [
 								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Partial Update Booking",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8b6a0f39-f316-4183-b162-83c6a6f11b2f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "d37ca60b-76f3-4ecf-a7eb-bd78e1168ee2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "token=abc123"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\" : \"Update name\",\n    \"lastname\" : \"Upadate Last name\"\n}"
+						},
+						"url": {
+							"raw": "{{bookingBaseUrl}}/booking/1",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"booking",
+								"1"
 							]
 						}
 					},
