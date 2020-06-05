@@ -2,41 +2,38 @@
 https://restful-booker.herokuapp.com/apidoc/index.html
 
 
-# Practice 1
+# Practice 2
 
-## Check requests contracts
+## Add Authentication
 
-Excercise 0:
- - Create a new environment in postman, add a url variable and use the variable to do the requests in the following exercices
- https://learning.postman.com/docs/postman/variables-and-environments
-- Create a new Collection and save all the exercises in it https://learning.postman.com/docs/postman/collections/creating-collections/#how-to-create-collections
+Excercise 1:
+ - Add authentication data to the collections that needs it.
 
-Exercise 1: ​
+Excercise 2:
+- Enable the postman console and run some requets. What information can be used form console?
 
-- Test Get endpoints and report the bugs.​
-    - Ask for all the bookings
-    - Ask for bookings by: id and other filters
+    https://learning.postman.com/docs/postman/sending-api-requests/debugging-and-logs/#network-calls-with-postman-console
 
-Exercise 2: ​
+Exercise 3
+- Add tests to verifiy the corresponding response status codes to the request in practice 1.
+  If needs help to start add from snippets
 
-- Create a new  Booking and report all the bugs found.
-    - Check boundaries
-    - Check data types
-    - Check headers
-    - Response format
-    - Responses status codes
-    - Response Errors
-    - Headers
+    Postman: https://learning.postman.com/docs/postman/scripts/intro-to-scripts/
+    Status codes: https://httpstatusdogs.com/   - https://http.cat/ 
 
-Exercise 3:
- - Check minimal security validation
- - Test  SetToken endpoint
+Excercise 4
+ Run all the tests from runner    
 
-Exercise 4:
+Excercise 5
+ - Add a test case to check First and last Name with different values from a csv file and run it
 
-- Update a booking using the token to authenticates
-- Update a booking using the basic auth
-- Find update bug
-- Update a booking sending just a part of the payload 
+ You can use ChaiJS BDD syntax and pm.expect in your assertions to test the response detail.
+ https://www.chaijs.com/api/bdd/
+ 
+
+
+
+
+
 
 ​
