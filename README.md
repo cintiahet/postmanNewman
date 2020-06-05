@@ -1,6 +1,17 @@
 # RestfulBooker Documentation
 https://restful-booker.herokuapp.com/apidoc/index.html
 
+## Run RestFullBoker locally with Docker
+
+1 - Install Docker https://docs.docker.com/docker-for-windows/install/
+2 - Install Docker compose https://docs.docker.com/compose/install/
+3 - Clone RestFullBooker Repo: https://github.com/mwinteringham/restful-booker
+4 - Follow the readme steps for installation via Docker:
+    Navigate into the restful-booker root folder
+    Run docker-compose build
+    Run docker-compose up
+    APIs are exposed on http://localhost:3001
+
 
 # Practice 1
 
