@@ -12,7 +12,7 @@ https://restful-booker.herokuapp.com/apidoc/index.html
 4 - Follow the readme steps for installation via Docker:
 
     Navigate into the restful-booker root folder
-    
+
     Run docker-compose build
 
     Run docker-compose up
@@ -26,7 +26,7 @@ https://restful-booker.herokuapp.com/apidoc/index.html
 
 Excercise 0:
  - Create a new environment in postman, add a url variable and use the variable to do the requests in the following exercices
- https://learning.postman.com/docs/postman/variables-and-environments
+ https://learning.postman.com/docs/postman/variables-and-environments/variables/
 - Create a new Collection and save all the exercises in it https://learning.postman.com/docs/postman/collections/creating-collections/#how-to-create-collections
 
 Exercise 1: ​
