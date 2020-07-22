@@ -11,8 +11,8 @@ before_script:
 - node_modules/.bin/newman --version
 
 script:
-- node_modules/.bin/newman run collections/Booking Practice1.postman_collection.json -e environments/BookingLive.postman_environment.json
-- node_modules/.bin/newman run collections/Booking Practice2.postman_collection.json -e environments/BookingLive.postman_environment.json
-- node_modules/.bin/newman run collections/Booking Practice3.postman_collection.json -e environments/BookingLive.postman_environment.json
-- node_modules/.bin/newman run collections/Booking Practice4.postman_collection.json -e environments/BookingLive.postman_environment.json
-- node_modules/.bin/newman run collections/Booking Practice6.postman_collection.json -e environments/BookingLive.postman_environment.json
+- node_modules/.bin/newman run collections/BookingPractice1.postman_collection.json -e environments/BookingLive.postman_environment.json
+- node_modules/.bin/newman run collections/BookingPractice2.postman_collection.json -e environments/BookingLive.postman_environment.json
+- node_modules/.bin/newman run collections/BookingPractice3.postman_collection.json -e environments/BookingLive.postman_environment.json
+- node_modules/.bin/newman run collections/BookingPractice4.postman_collection.json -e environments/BookingLive.postman_environment.json
+- node_modules/.bin/newman run collections/BookingPractice6.postman_collection.json -e environments/BookingLive.postman_environment.json
