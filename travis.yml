@@ -11,4 +11,6 @@ before_script:
 - node_modules/.bin/newman --version
 
 script:
-- node_modules/.bin/newman run collections/RestfulBookerAutom.postman_collection.json -e environments/BookingLive.postman_environment.json
+- node_modules/.bin/newman run collections/Booking Practice1.postman_collection.json -e environments/BookingLive.postman_environment.json
+- node_modules/.bin/newman run collections/Booking Practice2.postman_collection.json -e environments/BookingLive.postman_environment.json
+- node_modules/.bin/newman run collections/Booking Practice3.postman_collection.json -e environments/BookingLive.postman_environment.json
