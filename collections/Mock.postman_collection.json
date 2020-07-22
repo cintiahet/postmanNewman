@@ -1,0 +1,478 @@
+{
+	"info": {
+		"_postman_id": "42b563b9-9900-446d-8248-ae5ee16674a6",
+		"name": "Mock Room",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Room",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1548d0e-ba8c-44bf-88b2-28d405668dbd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{bookingBaseUrl}}/room",
+					"host": [
+						"{{bookingBaseUrl}}"
+					],
+					"path": [
+						"room"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{bookingBaseUrl}}/room",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"room"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"roomid\": 1\n    },\n    {\n        \"roomid\": 2\n    },\n    {\n        \"roomid\": 3\n    },\n    {\n        \"roomid\": 4\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Room by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a6bf89af-36cf-4e7e-8c09-5d62b9a07ad9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-mock-response-code",
+						"value": "500",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{bookingBaseUrl}}/room/1",
+					"host": [
+						"{{bookingBaseUrl}}"
+					],
+					"path": [
+						"room",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Room by id 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookingBaseUrl}}/room/2",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"room",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 17:52:02 GMT"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1593625593"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=3688e870228e2599"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=be2a35dee4071bc9"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bed\": 2,\n    \"bathroom\": 2,\n    \"tv\": true,\n    \"wifi\": false,\n    \"category\": \"premium\"\n}"
+				},
+				{
+					"name": "Room by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookingBaseUrl}}/room/1",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"room",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 17:45:33 GMT"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1593625593"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=3688e870228e2599"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=be2a35dee4071bc9"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"bed\": 1,\r\n    \"bathroom\": 1,\r\n    \"tv\": true,\r\n    \"wifi\": false,\r\n    \"category\": \"standard\"\r\n}"
+				},
+				{
+					"name": "Room by id 3",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookingBaseUrl}}/room/3",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"room",
+								"3"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Jul 2020 19:16:02 GMT"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1593625593"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=3688e870228e2599"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=be2a35dee4071bc9"
+						},
+						{
+							"key": "Content-Length",
+							"value": "86"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Room by id not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0c0f623d-0d15-4fb5-80d8-b7d66c56f054",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{bookingBaseUrl}}/room/999",
+					"host": [
+						"{{bookingBaseUrl}}"
+					],
+					"path": [
+						"room",
+						"999"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Room by id not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookingBaseUrl}}/room/999",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"room",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 17:53:03 GMT"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1593625593"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=3688e870228e2599"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=be2a35dee4071bc9"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Room not found"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}

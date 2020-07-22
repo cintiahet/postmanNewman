@@ -1,0 +1,629 @@
+{
+	"info": {
+		"_postman_id": "da2928eb-5c88-4a7d-ba3b-86c9e3929d36",
+		"name": "Booking Practice3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ex1",
+			"item": [
+				{
+					"name": "Create a booking using dynamic variables",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a9db07d6-79c7-461e-9aa4-9e6e628d8f15",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "04d35728-2585-4cd8-be90-e2463fca6924",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" :\"{{$randomFirstName}}\",\r\n    \"lastname\" : \"{{$randomLastName}}\",\r\n    \"totalprice\" : {{$randomInt}},\r\n    \"depositpaid\" : {{$randomBoolean}},\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2019-01-01\",\r\n        \"checkout\" : \"2019-01-03\"\r\n    },\r\n    \"additionalneeds\" : \"{{$randomLoremSentence}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookingBaseUrl}}/booking",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\" : \"asdfg \",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 20,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2019-01-01\",\r\n        \"checkout\" : \"2019-01-03\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bookingBaseUrl}}/booking",
+									"host": [
+										"{{bookingBaseUrl}}"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "196"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"c4-hcmgVUghYzL68d1BZvMQgIMFMeI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jun 2020 17:41:58 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookingid\": 11,\n    \"booking\": {\n        \"firstname\": \"asdfg\",\n        \"lastname\": \"Brown\",\n        \"totalprice\": 20,\n        \"depositpaid\": true,\n        \"bookingdates\": {\n            \"checkin\": \"2019-01-01\",\n            \"checkout\": \"2019-01-03\"\n        },\n        \"additionalneeds\": \"Breakfast\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a booking using dynamic date variables",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6df25bd3-a383-4f26-8b7c-a3c482d93cc8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f87bd513-7e99-4e16-b152-bc2f8fa783ca",
+								"exec": [
+									"const moment = require(\"moment\");\r",
+									"var checkin = moment().add(\"days\", _.random(1, 180));\r",
+									"pm.variables.set(\"checkin\", checkin.format(\"YYYY-MM-DD\"));\r",
+									"\r",
+									"var checkout = checkin.add(\"days\", _.random(1, 14));\r",
+									"pm.variables.set(\"checkout\", checkout.format(\"YYYY-MM-DD\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" :\"{{$randomFirstName}}\",\r\n    \"lastname\" : \"{{$randomLastName}}\",\r\n    \"totalprice\" : {{$randomInt}},\r\n    \"depositpaid\" : {{$randomBoolean}},\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"{{checkin}}\",\r\n        \"checkout\" : \"{{checkout}}\"\r\n    },\r\n    \"additionalneeds\" : \"{{$randomLoremSentence}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookingBaseUrl}}/booking",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\" : \"asdfg \",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 20,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2019-01-01\",\r\n        \"checkout\" : \"2019-01-03\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bookingBaseUrl}}/booking",
+									"host": [
+										"{{bookingBaseUrl}}"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "196"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"c4-hcmgVUghYzL68d1BZvMQgIMFMeI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jun 2020 17:41:58 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookingid\": 11,\n    \"booking\": {\n        \"firstname\": \"asdfg\",\n        \"lastname\": \"Brown\",\n        \"totalprice\": 20,\n        \"depositpaid\": true,\n        \"bookingdates\": {\n            \"checkin\": \"2019-01-01\",\n            \"checkout\": \"2019-01-03\"\n        },\n        \"additionalneeds\": \"Breakfast\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ex2",
+			"item": [
+				{
+					"name": "Create a booking using dynamic data from arrays and defined ranges",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bfb369e6-c268-4614-b5e7-d6a6baf8ea86",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4af44ec5-8ade-4aa7-9c71-9fea14fb5704",
+								"exec": [
+									"//set dates\r",
+									"const moment = require(\"moment\");\r",
+									"var checkin = moment().add(\"days\", _.random(1, 180));\r",
+									"pm.variables.set(\"checkin\", checkin.format(\"YYYY-MM-DD\"));\r",
+									"\r",
+									"var checkout = checkin.add(\"days\", _.random(1, 14));\r",
+									"pm.variables.set(\"checkout\", checkout.format(\"YYYY-MM-DD\"));\r",
+									"\r",
+									"//set price\r",
+									"pm.variables.set(\"totalprice\", _.random(15, 1500));\r",
+									"\r",
+									"//set additional needs\r",
+									"var needs = [\"breakfast\", \"Airport shuttle \", \"early checkin\", \"late checkout\", \"Bottled water and snacks\", \"Luggage holding\", null];\r",
+									"pm.variables.set(\"additionalneeds\", needs[_.random(needs.length-1)]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" :\"{{$randomFirstName}}\",\r\n    \"lastname\" : \"{{$randomLastName}}\",\r\n    \"totalprice\" : {{totalprice}},\r\n    \"depositpaid\" : {{$randomBoolean}},\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"{{checkin}}\",\r\n        \"checkout\" : \"{{checkout}}\"\r\n    },\r\n    \"additionalneeds\" : \"{{additionalneeds}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookingBaseUrl}}/booking",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\" : \"asdfg \",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 20,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2019-01-01\",\r\n        \"checkout\" : \"2019-01-03\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bookingBaseUrl}}/booking",
+									"host": [
+										"{{bookingBaseUrl}}"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "196"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"c4-hcmgVUghYzL68d1BZvMQgIMFMeI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jun 2020 17:41:58 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookingid\": 11,\n    \"booking\": {\n        \"firstname\": \"asdfg\",\n        \"lastname\": \"Brown\",\n        \"totalprice\": 20,\n        \"depositpaid\": true,\n        \"bookingdates\": {\n            \"checkin\": \"2019-01-01\",\n            \"checkout\": \"2019-01-03\"\n        },\n        \"additionalneeds\": \"Breakfast\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ex3",
+			"item": [
+				{
+					"name": "Booking by Checkin date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9dc4888a-dcdb-4de3-86c7-6b0d1cfbe761",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookingBaseUrl}}/booking?checkin={{checkin}}",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "checkin",
+									"value": "{{checkin}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "None existing booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "14160454-e17f-4a54-8323-cb0eff7be621",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{bookingBaseUrl}}/booking/{{incorrectID}}",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"booking",
+								"{{incorrectID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Booking by Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c9429263-b434-490d-8a28-e403ff1b5d7d",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{bookingBaseUrl}}/booking?firstname={{$randomFirstName}}",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": "{{$randomFirstName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Booking by  Incorrect Date Param",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "92cfaca0-dcf1-4612-9bfa-a08465be11fd",
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"console.log(pm.variables.get(\"baddates\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bookingBaseUrl}}/booking?checkout={{baddates}}",
+							"host": [
+								"{{bookingBaseUrl}}"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "checkout",
+									"value": "{{baddates}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bdf94f50-1832-4903-8b6f-64d2f82ac95b",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"",
+							"const moment = require(\"moment\"); ",
+							"",
+							"var checkin = moment().add(\"days\", _.random(1, 180)); ",
+							"",
+							"pm.variables.set(\"checkin\", checkin.format(\"YYYY-MM-DD\")); ",
+							"",
+							"//set bad date ",
+							"",
+							"var baddates = [\"1900\", \"35/10/2015\", \"10-25-2000\", \"10/40/2019\", \"02/30/2020\", null]; ",
+							"",
+							"pm.variables.set(\"baddates\", baddates[_.random(baddates.length-1)]); ",
+							"",
+							"var ids = [\"aaaa\", -1500, true, 15000000000]; ",
+							"",
+							"pm.variables.set(\"incorrectID\", ids[_.random(ids.length-1)]); "
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d462fe70-35a1-4b47-bee5-594140ba6a9e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

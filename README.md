@@ -29,7 +29,7 @@ Excercise 4
 Excercise 5
  - Add a test case to check First and last Name with different values from a csv file and run it
 
- You can use ChaiJS BDD syntax and pm.expect in your assertions to test the response detail.
+ Check Chai doc:
  https://www.chaijs.com/api/bdd/
  
 
