@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "d32e7758-dae0-4363-89d2-3bb8a93b7ed5",
-		"name": "Restful Booker Autom",
+		"name": "Booking Practice 6",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -1324,21 +1324,10 @@
 				"id": "2c617a34-e7bf-44f2-801b-b545045b3243",
 				"type": "text/javascript",
 				"exec": [
-					"// top names of 1996",
-					"var firstNames = [\"Emily\",\"Michael\", \"Jessica\",\"Matthew\", \"Ashley\",",
-					"\"Jacob\",\"Sarah\",\"Christopher\",\"Samantha\",\"Joshua\",",
-					"\"Taylor\",\"Nicholas\",\"Hannah\",\"Tyler\",\"Alexis\",",
-					"\"Brandon\",\"Rachel\",\"Austin\",\"Elizabeth\",\"Andrew\"];",
+					"//assign first name and last name with dinamic variables ",
 					"",
-					"// top surnames in the U.S.",
-					"var lastNames = [\"Smith\", \"Johnson\", \"Williams\", \"Jones\", \"Brown\", ",
-					"\"Davis\", \"Miller\", \"Wilson\", \"Moore\", \"Taylor\", ",
-					"\"Anderson\", \"Thomas\", \"Jackson\", \"White\", \"Harris\", ",
-					"\"Martin\", \"Thompson\", \"Garcia\", \"Martinez\", \"Robinson\"];",
-					"",
-					"// randomly select first and last names then add to collection variables",
-					"pm.variables.set(\"firstname\", firstNames[_.random(firstNames.length - 1)]);",
-					"pm.variables.set(\"lastname\", lastNames[_.random(lastNames.length - 1)]);",
+					"pm.variables.set(\"firstname\", \"{$randomFirstName}\");",
+					"pm.variables.set(\"lastname\", \"{$randomLastName}\");",
 					"",
 					"// the random function comes from the loadash module (\"_.\")",
 					"// https://lodash.com/docs/4.17.11#random",
@@ -1358,7 +1347,7 @@
 					"",
 					"// put all the selected variables into a new booking object and save to a variable",
 					"var booking = {",
-					"    \"firstname\" : pm.variables.get(\"firstname\"),",
+					"    \"firstname\" :pm.variables.get(\"firstname\"),",
 					"    \"lastname\" : pm.variables.get(\"lastname\"),",
 					"    \"totalprice\" : pm.variables.get(\"totalprice\"),",
 					"    \"depositpaid\" : pm.variables.get(\"depositpaid\"),",
