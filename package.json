@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node tests.js"
+    "test": "newman run collections/BookingPractice6.postman_collection.json -e environments/BookingLive.postman_environment.json --reporters cli,junit --reporter-junit-export result.xml"
   },
   "repository": {
     "type": "git",
