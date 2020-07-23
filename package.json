@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "newman run collections/BookingPractice6.postman_collection.json -e environments/BookingLive.postman_environment.json --reporters cli,junit --reporter-junit-export result.xml"
+    "test": "newman run collections/BookingPractice6.postman_collection.json -e environments/BookingLive.postman_environment.json --reporters cli,junit --reporter-junit-export result.xml",
+    "nodetests": "node tests.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/cintiahet/postmanNewman/issues"
   },
-  "homepage": "https://github.com/cintiahet/postmanNewman#readme"
+  "homepage": "https://github.com/cintiahet/postmanNewman#readme",
+  "dependencies": {
+    "newman": "^5.1.2"
+  }
 }
