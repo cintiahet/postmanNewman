@@ -8,7 +8,7 @@ const env = require('./environments/BookingLive.postman_environment.json');
         collection: collections[i],
         environment: env,
         reporters: ['cli', 'junit'],
-        reporter: { junit : { export : './result.xml' } },
+        reporter: { junit : { export : './'+collections[i]+'_results.xml' } },
         iterationCount: 1,
     }, function (err) {
         if(err){ throw err; }
