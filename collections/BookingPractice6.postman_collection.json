@@ -1326,8 +1326,8 @@
 				"exec": [
 					"//assign first name and last name with dinamic variables ",
 					"",
-					"pm.variables.set(\"firstname\", \"{$randomFirstName}\");",
-					"pm.variables.set(\"lastname\", \"{$randomLastName}\");",
+					"pm.variables.set(\"firstname\", pm.variables.replaceIn('{{$randomFirstName}}'));",
+					"pm.variables.set(\"lastname\", pm.variables.replaceIn('{{$randomLastName}}'));",
 					"",
 					"// the random function comes from the loadash module (\"_.\")",
 					"// https://lodash.com/docs/4.17.11#random",
